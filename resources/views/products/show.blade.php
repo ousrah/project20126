@@ -6,7 +6,7 @@
     
       </head>
     <body>
-      Liste des produits 
+      Fiche de produit 
 
       <div class="overflow-x-auto justify-center">
         <table class="w-2/3 border border-gray-200 rounded-lg overflow-hidden">
@@ -27,7 +27,7 @@
             
              
       
-        @forelse ($products as $product)
+      
         <tr class="hover:bg-gray-50 transition">
             <td class="px-6 py-4 text-sm text-gray-800">{{$product->id}}</td>
             <td class="px-6 py-4 text-sm text-gray-800">{{$product->name}}</td>
@@ -36,14 +36,7 @@
             <td class="px-6 py-4 text-sm text-gray-800">{{$product->is_active}}</td>
             <td class="px-6 py-4 text-sm text-gray-800">{{$product->category?$product->category->name:'-'}}</td>
           </tr>
-        @empty
-          <tr class="hover:bg-gray-50 transition">
-            <td class="px-6 py-4 text-sm text-gray-800" colspan = 6>
-              Aucun produit disponible
-            </td>
-          </tr>
-
-        @endforelse
+       
       </table>
     </body>
 </html>

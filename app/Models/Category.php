@@ -1,30 +1,30 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Category extends Model
 {
+    protected $table = 'cats';
+    /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
-    /**
+
+     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
     protected $fillable = [
         'name',
-        'description',
-        'price',
-        'stock',
-        'is_active',
-        'category_id',
     ];
 
-    public function category(): BelongsTo
+    public function products(): HasMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Product::class);
     }
+
 
 }
